@@ -1,0 +1,39 @@
+<h3 class="page-heading">Students
+  <a class="btn btn-default pull-right" ui-sref="studentEdit({studentId:'new'})">
+    <span class="glyphicon glyphicon-plus-sign new"></span>
+  </a>
+
+  <div class="pull-right page-search">
+    <input type="text" class="form-control pull-right" ng-model="search" ng-model-options="{ debounce: 600 }" placeholder="Search by name">
+  </div>
+</h3>
+
+<table class="table table-striped" ng-show="parent.children && parent.children.length > 0">
+  <tbody>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Student Id</th>
+      <th>State</th>
+      <th>Institution</th>
+      <th>Balance</th>
+    </tr>
+
+    <tr ng-repeat="student in parent.children | filter:searchText">
+      <td>{{student.firstName}}</td>
+      <td>{{student.lastName}}</td>
+      <td>{{student.studentId}}</td>
+      <td>{{student.state}}</td>
+      <td>{{student.institution}}</td>
+      <td>{{student.balance}}</td>
+      <td>
+        <a ui-sref="studentEdit({studentId:student.id})" class="btn btn-xs btn-default">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div ng-show="!parent.children">
+  <h3 class="page-heading">No children have been added.
+</div>

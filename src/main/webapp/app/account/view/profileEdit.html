@@ -1,0 +1,47 @@
+<h3>{{parent.firstName}} {{parent.lastName}}</h3>
+<form name="parentForm" class="form-horizontal" autocomplete="off">
+  <div class="form-group" ng-class="{ 'has-error' : parentForm.firstName.$invalid && !parentForm.firstName.$pristine }">
+    <label class="col-sm-2 control-label" for="firstName">First Name</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="text" id="firstName" placeholder="First Name" ng-model="parent.firstName" name="firstName" maxlength="50" required>
+    </div>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error' : parentForm.lastName.$invalid && !parentForm.lastName.$pristine }">
+    <label class="col-sm-2 control-label" for="lastName">Last Name</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="text" id="lastName" placeholder="Last Name" ng-model="parent.lastName" name="lastName" required>
+    </div>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error' : parentForm.email.$invalid && !parentForm.email.$pristine }">
+    <label class="col-sm-2 control-label" for="email">Email Address</label>
+    <div class="col-sm-4">
+      <input class="form-control" type="email" id="email" placeholder="Email" ng-model="parent.email" name="email">
+    </div>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error' : parentForm.username.$invalid && !parentForm.username.$pristine }">
+    <label class="col-sm-2 control-label" for="username">Username</label>
+    <div class="col-sm-4">
+      <input class="form-control" type="username" id="username" placeholder="Username" ng-model="parent.username" name="username">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="password">Password</label>
+    <div class="col-sm-4">
+      <input class="form-control" type="password" id="password" placeholder="Password" ng-model="parent.password" name="password">
+    </div>
+  </div>
+
+  <hr>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-primary" ng-click="save()" ng-disabled="parentForm.$invalid">Save
+      </button>
+      <button class="btn btn-default" ng-click="cancelEdit()">Cancel</button>
+    </div>
+  </div>
+
+</form>
