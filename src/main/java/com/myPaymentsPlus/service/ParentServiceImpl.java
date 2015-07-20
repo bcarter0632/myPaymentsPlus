@@ -14,7 +14,6 @@ public class ParentServiceImpl implements ParentService {
 	@Autowired
 	public ParentServiceImpl(ParentRepository parentRepository) {
 		this.parentRepository = parentRepository;
-
 	}
 
 	@Override

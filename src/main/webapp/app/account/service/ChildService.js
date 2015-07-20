@@ -11,13 +11,13 @@
           });
         },
 
-        save: function(parent) {
-          if (parent.id) {
-            return $http.put('parents', parent).then(function(response) {
+        save: function(parentId, child) {
+          if (child.id) {
+            return $http.put('students/' + parentId, child).then(function(response) {
               return response.data;
             });
           } else {
-            return $http.post('parents', parent).then(function(response) {
+            return $http.post('students/' + parentId, child).then(function(response) {
               return response.data;
             });
           }

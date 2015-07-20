@@ -7,15 +7,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class CreditCard {
 
 	@Id
 	@GeneratedValue
 	private Long id;
+	private String name;
 	private String cardNumber;
 	private String expiration;
 	private String ccv;
+	@JsonBackReference
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "parentId", updatable = false)
 	private Parent parent;
@@ -30,6 +34,14 @@ public class CreditCard {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getCardNumber() {
@@ -62,6 +74,12 @@ public class CreditCard {
 
 	public void setParent(Parent parent) {
 		this.parent = parent;
+	}
+
+	@Override
+	public String toString() {
+		return "CreditCard [name=" + name + ", cardNumber=" + cardNumber
+				+ ", expiration=" + expiration + ", ccv=" + ccv + "]";
 	}
 
 }

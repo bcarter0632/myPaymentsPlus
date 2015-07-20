@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  App.controller("StudentListCtrl", ['$window', '$scope', 'ParentService',
+  App.controller("PaymentListCtrl", ['$window', '$scope', 'ParentService',
     function($window, $scope, ParentService) {
       $scope.parentId = 1;
       $scope.parent = {};

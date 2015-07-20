@@ -32,9 +32,6 @@ public class ParentController {
 
 	@RequestMapping(method = { RequestMethod.PUT, RequestMethod.POST })
 	public Parent save(@RequestBody Parent parent) {
-		System.out.println(parent + "");
-		Parent p = parentService.save(parent);
-		System.out.println(p);
-		return p;
+		return parentService.save(parent);
 	}
 }

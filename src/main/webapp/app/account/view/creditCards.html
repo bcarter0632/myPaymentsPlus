@@ -1,0 +1,31 @@
+<h3 class="page-heading">Credit Cards
+  <a class="btn btn-default pull-right" ui-sref="creditCardEdit({cardId:'new'})">
+    <span class="glyphicon glyphicon-plus-sign new"></span>
+  </a>
+</h3>
+
+<table class="table table-striped" ng-show="parent.creditCards && parent.creditCards.length > 0">
+  <tbody>
+    <tr>
+      <th>Profile Name</th>
+      <th>Card Number</th>
+      <th>CCV</th>
+      <th>Expiration</th>
+    </tr>
+
+    <tr ng-repeat="card in parent.creditCards | filter:searchText">
+      <td>{{card.name}}</td>
+      <td>{{card.cardNumber}}</td>
+      <td>{{card.ccv}}</td>
+      <td>{{card.expiration}}</td>
+      <td>
+        <a ui-sref="creditCardEdit({cardId:card.id})" class="btn btn-xs btn-default">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div ng-show="!parent.creditCards">
+  <h3 class="page-heading">No cards have been added.
+</div>

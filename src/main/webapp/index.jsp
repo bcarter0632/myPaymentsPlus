@@ -25,12 +25,12 @@
       <title-header></title-header>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#/payments">Make a Payment</a></li>
           <li ng-class="{dropdown: true, open: accountToggle == true}" ng-mouseleave="accountToggle = false" ng-mouseover="accountToggle=true" ng-init="accountToggle=false">
             <a class="dropdown-toggle" data-toggle="dropdown">Manage Account<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="#/profile">My Profile</a></li>
               <li><a href="#/students">Manage Students</a></li>
+              <li><a href="#/creditCards">Manage Credit Cards</a></li>
             </ul>
           </li>
         </ul>

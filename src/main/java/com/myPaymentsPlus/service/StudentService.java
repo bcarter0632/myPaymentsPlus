@@ -10,5 +10,5 @@ public interface StudentService {
 
 	public List<Child> findAllByParentId(Long parentId);
 
-	public Child save(Child student);
+	public Child save(Long parentId, Child student);
 }

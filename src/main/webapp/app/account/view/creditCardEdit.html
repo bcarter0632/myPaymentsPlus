@@ -1,0 +1,40 @@
+  <h3>{{card.name}}</h3>
+  <form name="cardForm" class="form-horizontal" autocomplete="off">
+    <div class="form-group" ng-class="{ 'has-error' : cardForm.name.$invalid && !cardForm.name.$pristine }">
+      <label class="col-sm-2 control-label" for="name">Name</label>
+      <div class="col-sm-2">
+        <input class="form-control" type="text" id="name" placeholder="Name" ng-model="creditCard.name" name="name" maxlength="50" required>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : cardForm.cardNumber.$invalid && !cardForm.cardNumber.$pristine }">
+      <label class="col-sm-2 control-label" for="cardNumber">Last Name</label>
+      <div class="col-sm-2">
+        <input class="form-control" type="text" id="cardNumber" placeholder="Cardnumber" ng-model="creditCard.cardNumber" name="cardNumber" required>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : cardForm.ccv.$invalid && !cardForm.ccv.$pristine }">
+      <label class="col-sm-2 control-label" for="ccv">CCV</label>
+      <div class="col-sm-2">
+        <input class="form-control" type="text" id="ccv" placeholder="CCV" ng-model="creditCard.ccv" name="ccv" required>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : cardForm.expiration.$invalid && !cardForm.expiration.$pristine }">
+      <label class="col-sm-2 control-label" for="expiration">Expiration</label>
+      <div class="col-sm-2">
+        <input class="form-control" type="text" id="expiration" placeholder="Expiration" ng-model="creditCard.expiration" name="expiration" required>
+      </div>
+    </div>
+
+    <hr>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button class="btn btn-primary" ng-click="save()" ng-disabled="cardForm.$invalid">Save
+        </button>
+        <button class="btn btn-default" ng-click="cancelEdit()">Cancel</button>
+      </div>
+    </div>
+
+  </form>

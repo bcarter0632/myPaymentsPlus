@@ -24,6 +24,14 @@ var App = angular.module('App', ['ngAnimate', 'ngRoute', 'ui.router', 'mgcrea.ng
         url: '/student/{studentId}',
         templateUrl: 'app/account/view/studentEdit.html',
         controller: 'StudentEditCtrl'
+      }).state('creditCards', {
+        url: '/creditCards',
+        templateUrl: 'app/account/view/creditCards.html',
+        controller: 'PaymentListCtrl'
+      }).state('creditCardEdit', {
+        url: '/creditCard/{cardId}',
+        templateUrl: 'app/account/view/creditCardEdit.html',
+        controller: 'PaymentEditCtrl'
       });
       $urlRouterProvider.otherwise('/profile');
     }

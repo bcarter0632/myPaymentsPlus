@@ -9,34 +9,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.myPaymentsPlus.domain.Child;
-import com.myPaymentsPlus.service.StudentService;
+import com.myPaymentsPlus.domain.CreditCard;
+import com.myPaymentsPlus.service.PaymentService;
 
 @RestController
-@RequestMapping("students")
-public class StudentController {
+@RequestMapping("payments")
+public class CreditCardController {
 
-	private final StudentService studentService;
+	private final PaymentService paymentService;
 
 	@Autowired
-	public StudentController(StudentService studentService) {
-		this.studentService = studentService;
+	public CreditCardController(PaymentService paymentService) {
+		this.paymentService = paymentService;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Child get(@PathVariable("id") Long id) {
-		return studentService.findById(id);
+	public CreditCard get(@PathVariable("id") Long id) {
+		return paymentService.findById(id);
 	}
 
 	@RequestMapping(value = "/all/{parentId}/", method = RequestMethod.GET)
-	public List<Child> getByParentId(@PathVariable("parentId") Long parentId) {
-		return studentService.findAllByParentId(parentId);
+	public List<CreditCard> getByParentId(
+			@PathVariable("parentId") Long parentId) {
+		return paymentService.findAllByParentId(parentId);
 	}
 
 	@RequestMapping(value = "/{parentId}", method = { RequestMethod.PUT,
 			RequestMethod.POST })
-	public Child save(@PathVariable("parentId") Long parentId,
-			@RequestBody Child student) {
-		return studentService.save(parentId, student);
+	public CreditCard save(@PathVariable("parentId") Long parentId,
+			@RequestBody CreditCard student) {
+		return paymentService.save(parentId, student);
 	}
 }

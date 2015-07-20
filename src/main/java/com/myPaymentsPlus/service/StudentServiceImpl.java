@@ -6,15 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.myPaymentsPlus.domain.Child;
+import com.myPaymentsPlus.domain.Parent;
+import com.myPaymentsPlus.repository.ParentRepository;
 import com.myPaymentsPlus.repository.StudentRepository;
 
 @Service
 public class StudentServiceImpl implements StudentService {
 
+	private final ParentRepository parentRepository;
 	private final StudentRepository studentRepository;
 
 	@Autowired
-	public StudentServiceImpl(StudentRepository studentRepository) {
+	public StudentServiceImpl(ParentRepository parentRepository,
+			StudentRepository studentRepository) {
+		this.parentRepository = parentRepository;
 		this.studentRepository = studentRepository;
 	}
 
@@ -26,7 +31,11 @@ public class StudentServiceImpl implements StudentService {
 		return studentRepository.findAllByParentId(parentId);
 	}
 
-	public Child save(Child student) {
+	public Child save(Long parentId, Child student) {
+		if (student.getId() == null) {
+			Parent parent = parentRepository.findOne(parentId);
+			student.setParent(parent);
+		}
 		return studentRepository.save(student);
 	}
 
